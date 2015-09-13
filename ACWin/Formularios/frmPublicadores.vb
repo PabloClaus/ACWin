@@ -10,7 +10,9 @@
         Dim lColPublicadores As New ACWinDL.Model.clsPublicadores
         lColPublicadores.dbGetAll()
         For Each lObjPublicador In lColPublicadores
-            Dim lObjLWItem As New ListViewItem(lObjPublicador.Apellido)
+            Dim lObjLWItem As New ListViewItem(lObjPublicador.Id)
+            lObjLWItem.Name = lObjPublicador.Id
+            lObjLWItem.SubItems.Add(lObjPublicador.Apellido)
             lObjLWItem.SubItems.Add(lObjPublicador.Nombre)
             lObjLWItem.SubItems.Add(lObjPublicador.Direccion)
             lObjLWItem.SubItems.Add(lObjPublicador.TelefonoCasa)
@@ -46,5 +48,15 @@
 
         ' Perform the sort with these new sort options.
         lwPublicadores.Sort()
+    End Sub
+
+    Private Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+        frmPublicadorUpd.LoadObjPublicador(Convert.ToInt32(lwPublicadores.SelectedItems(0).Text()))
+        frmPublicadorUpd.ShowDialog(Me)
+    End Sub
+
+    Private Sub lwPublicadores_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lwPublicadores.SelectedIndexChanged
+        frmPublicadorUpd.LoadObjPublicador(Convert.ToInt32(lwPublicadores.SelectedItems(0).Text()))
+        frmPublicadorUpd.ShowDialog(Me)
     End Sub
 End Class

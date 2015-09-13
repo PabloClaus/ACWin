@@ -97,6 +97,12 @@
       <DependentUpon>frmPrincipal.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\frmPublicadorUpdate.Designer.vb">
+      <DependentUpon>frmPublicadorUpdate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmPublicadorUpdate.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\frmPublicadorAdd.Designer.vb">
       <DependentUpon>frmPublicadorAdd.vb</DependentUpon>
     </Compile>
@@ -130,6 +136,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Formularios\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmPublicadorUpdate.resx">
+      <DependentUpon>frmPublicadorUpdate.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmPublicadorAdd.resx">
       <DependentUpon>frmPublicadorAdd.vb</DependentUpon>

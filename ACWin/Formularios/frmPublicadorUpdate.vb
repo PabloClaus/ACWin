@@ -1,6 +1,8 @@
-﻿Public Class frmPublicadorAdd
+﻿Public Class frmPublicadorUpd
+    Dim pObjPublicador As ACWinDL.Model.clsPublicador
     Private Sub frmPublicadorAdd_Load(ByVal sender As Object, _
         ByVal e As System.EventArgs) Handles MyBase.Load
+        LoadDatosGenerales()
         LoadCboSexo()
         LoadCboGrupo()
         LoadCboEstado()
@@ -8,6 +10,18 @@
         LoadCboPrecursor()
     End Sub
 
+    Friend Sub LoadObjPublicador(ByVal Id As Integer)
+        pObjPublicador = New ACWinDL.Model.clsPublicador With {.Id = Id}
+        pObjPublicador.dbGet()
+    End Sub
+
+    Private Sub LoadDatosGenerales()
+        With pObjPublicador
+            Me.txtApellido.Text = .Apellido
+            Me.txtNombre.Text = .Nombre
+            Me.txtDireccion.Text = .Direccion
+        End With
+    End Sub
 
     Private Sub LoadCboSexo()
         Dim lColSexo As New ACWinDL.Model.clsSexos
@@ -19,6 +33,7 @@
         Me.cboSexo.DataSource = lObjItems
         Me.cboSexo.DisplayMember = "Valor"
         Me.cboSexo.ValueMember = "Id"
+        Me.cboSexo.SelectedIndex = pObjPublicador.ObjSexo.Id
     End Sub
 
     Private Sub LoadCboGrupo()
@@ -72,7 +87,8 @@
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         If txtNombre.Text.Length > 0 And txtApellido.Text.Length > 0 Then
-            Dim lObjPublicador = New ACWinDL.Model.clsPublicador With {.Nombre = txtNombre.Text, _
+            Dim lObjPublicador = New ACWinDL.Model.clsPublicador With {.Id = pObjPublicador.Id, _
+                                                                       .Nombre = txtNombre.Text, _
                                                                        .Apellido = txtApellido.Text, _
                                                                        .Direccion = txtDireccion.Text, _
                                                                        .FechaBautismo = dtpFechaBautismo.Value.ToShortDateString, _
@@ -87,10 +103,10 @@
             lObjPublicador.ObjGrupo = New ACWinDL.Model.clsGrupo With {.Id = cboGrupo.SelectedValue}
             lObjPublicador.ObjPrecursor = New ACWinDL.Model.clsPrecursor With {.Id = cboPrecursor.SelectedValue}
             lObjPublicador.ObjPrivilegio = New ACWinDL.Model.clsPrivilegio With {.Id = cboPrivilegio.SelectedValue}
-            lObjPublicador.dbAdd()
+            lObjPublicador.dbUpdate()
 
 
-            Dim lObjLWItem As New ListViewItem(lObjPublicador.Id)
+            Dim lObjLWItem As ListViewItem = frmPublicadores.lwPublicadores.Items.Cast(Of ListViewItem).First(Function(x) x.Text = Convert.ToString(lObjPublicador.Id))
             lObjLWItem.SubItems.Add(lObjPublicador.Apellido)
             lObjLWItem.SubItems.Add(lObjPublicador.Nombre)
             lObjLWItem.SubItems.Add(lObjPublicador.Direccion)

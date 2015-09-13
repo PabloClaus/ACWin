@@ -23,88 +23,100 @@ Partial Class frmPublicadores
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.lwPublicadores = New System.Windows.Forms.ListView()
-        Me.chApellido = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chNombre = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chDireccion = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chTelefonoCasa = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chTelefonoMovil = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chTelefonoTrabajo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chFechaNacimiento = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chFechaBautismo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chPrivilegio = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chPrecursor = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.chGrupo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chApellido = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
+        Me.chNombre = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
+        Me.chDireccion = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
+        Me.chTelefonoCasa = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
+        Me.chTelefonoMovil = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
+        Me.chTelefonoTrabajo = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
+        Me.chFechaNacimiento = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
+        Me.chFechaBautismo = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
+        Me.chPrivilegio = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
+        Me.chPrecursor = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
+        Me.chGrupo = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
         Me.btNuevo = New System.Windows.Forms.Button()
         Me.btnEditar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.SuspendLayout()
+        Me.chId = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
+        Me.SuspendLayout
         '
         'lwPublicadores
         '
-        Me.lwPublicadores.AllowColumnReorder = True
-        Me.lwPublicadores.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chApellido, Me.chNombre, Me.chDireccion, Me.chTelefonoCasa, Me.chTelefonoMovil, Me.chTelefonoTrabajo, Me.chFechaNacimiento, Me.chFechaBautismo, Me.chPrivilegio, Me.chPrecursor, Me.chGrupo})
-        Me.lwPublicadores.FullRowSelect = True
-        Me.lwPublicadores.GridLines = True
+        Me.lwPublicadores.AllowColumnReorder = true
+        Me.lwPublicadores.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chId, Me.chApellido, Me.chNombre, Me.chDireccion, Me.chTelefonoCasa, Me.chTelefonoMovil, Me.chTelefonoTrabajo, Me.chFechaNacimiento, Me.chFechaBautismo, Me.chPrivilegio, Me.chPrecursor, Me.chGrupo})
+        Me.lwPublicadores.FullRowSelect = true
+        Me.lwPublicadores.GridLines = true
         Me.lwPublicadores.Location = New System.Drawing.Point(13, 65)
         Me.lwPublicadores.Name = "lwPublicadores"
         Me.lwPublicadores.Size = New System.Drawing.Size(1024, 377)
         Me.lwPublicadores.TabIndex = 0
-        Me.lwPublicadores.UseCompatibleStateImageBehavior = False
+        Me.lwPublicadores.UseCompatibleStateImageBehavior = false
         Me.lwPublicadores.View = System.Windows.Forms.View.Details
         '
         'chApellido
         '
+        Me.chApellido.DisplayIndex = 0
         Me.chApellido.Text = "Apellido"
         Me.chApellido.Width = 92
         '
         'chNombre
         '
+        Me.chNombre.DisplayIndex = 1
         Me.chNombre.Text = "Nombre"
         Me.chNombre.Width = 86
         '
         'chDireccion
         '
+        Me.chDireccion.DisplayIndex = 2
         Me.chDireccion.Text = "Dirección"
         Me.chDireccion.Width = 87
         '
         'chTelefonoCasa
         '
+        Me.chTelefonoCasa.DisplayIndex = 3
         Me.chTelefonoCasa.Text = "Teléfono Casa"
         Me.chTelefonoCasa.Width = 91
         '
         'chTelefonoMovil
         '
+        Me.chTelefonoMovil.DisplayIndex = 4
         Me.chTelefonoMovil.Text = "Telefono Móvil"
         Me.chTelefonoMovil.Width = 90
         '
         'chTelefonoTrabajo
         '
+        Me.chTelefonoTrabajo.DisplayIndex = 5
         Me.chTelefonoTrabajo.Text = "Teléfono Trabajo"
         Me.chTelefonoTrabajo.Width = 102
         '
         'chFechaNacimiento
         '
+        Me.chFechaNacimiento.DisplayIndex = 6
         Me.chFechaNacimiento.Text = "Fecha Nacimiento"
         Me.chFechaNacimiento.Width = 107
         '
         'chFechaBautismo
         '
+        Me.chFechaBautismo.DisplayIndex = 7
         Me.chFechaBautismo.Text = "Fecha Bautismo"
         Me.chFechaBautismo.Width = 108
         '
         'chPrivilegio
         '
+        Me.chPrivilegio.DisplayIndex = 8
         Me.chPrivilegio.Text = "Privilegio"
         Me.chPrivilegio.Width = 84
         '
         'chPrecursor
         '
+        Me.chPrecursor.DisplayIndex = 9
         Me.chPrecursor.Text = "Precursor"
         Me.chPrecursor.Width = 77
         '
         'chGrupo
         '
+        Me.chGrupo.DisplayIndex = 10
         Me.chGrupo.Text = "Grupo"
         Me.chGrupo.Width = 81
         '
@@ -115,7 +127,7 @@ Partial Class frmPublicadores
         Me.btNuevo.Size = New System.Drawing.Size(75, 23)
         Me.btNuevo.TabIndex = 1
         Me.btNuevo.Text = "Nuevo"
-        Me.btNuevo.UseVisualStyleBackColor = True
+        Me.btNuevo.UseVisualStyleBackColor = true
         '
         'btnEditar
         '
@@ -124,7 +136,7 @@ Partial Class frmPublicadores
         Me.btnEditar.Size = New System.Drawing.Size(75, 23)
         Me.btnEditar.TabIndex = 2
         Me.btnEditar.Text = "Editar"
-        Me.btnEditar.UseVisualStyleBackColor = True
+        Me.btnEditar.UseVisualStyleBackColor = true
         '
         'btnEliminar
         '
@@ -133,23 +145,29 @@ Partial Class frmPublicadores
         Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
         Me.btnEliminar.TabIndex = 3
         Me.btnEliminar.Text = "Eliminar"
-        Me.btnEliminar.UseVisualStyleBackColor = True
+        Me.btnEliminar.UseVisualStyleBackColor = true
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.AutoSize = true
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
         Me.Label1.Location = New System.Drawing.Point(10, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(112, 20)
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Publicadores"
         '
+        'chId
+        '
+        Me.chId.DisplayIndex = 11
+        Me.chId.Text = "Id"
+        Me.chId.Width = 0
+        '
         'frmPublicadores
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.AutoSize = True
+        Me.AutoSize = true
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(1049, 454)
         Me.Controls.Add(Me.Label1)
@@ -157,14 +175,14 @@ Partial Class frmPublicadores
         Me.Controls.Add(Me.btnEditar)
         Me.Controls.Add(Me.btNuevo)
         Me.Controls.Add(Me.lwPublicadores)
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
+        Me.MaximizeBox = false
+        Me.MinimizeBox = false
         Me.Name = "frmPublicadores"
         Me.Text = "ABM Publicadores"
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        Me.ResumeLayout(false)
+        Me.PerformLayout
 
-    End Sub
+End Sub
     Friend WithEvents lwPublicadores As System.Windows.Forms.ListView
     Friend WithEvents btNuevo As System.Windows.Forms.Button
     Friend WithEvents btnEditar As System.Windows.Forms.Button
@@ -181,4 +199,5 @@ Partial Class frmPublicadores
     Friend WithEvents chGrupo As System.Windows.Forms.ColumnHeader
     Friend WithEvents btnEliminar As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents chId As System.Windows.Forms.ColumnHeader
 End Class

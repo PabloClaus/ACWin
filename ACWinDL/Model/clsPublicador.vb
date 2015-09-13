@@ -72,23 +72,78 @@
                             .CommandType = CommandType.StoredProcedure
                             .Parameters.Add("@Id_P", SqlDbType.Int, 300000, "Id")
                             .Parameters("@Id_P").Direction = ParameterDirection.Output
-                            .Parameters.AddWithValue("@Nombre_P", Nombre)
-                            .Parameters.AddWithValue("@Apellido_P", Apellido)
-                            .Parameters.AddWithValue("@Direccion_P", Direccion)
-                            .Parameters.AddWithValue("@EMail_P", EMail)
-                            .Parameters.AddWithValue("@FechaNacimiento_P", FechaNacimiento)
-                            .Parameters.AddWithValue("@FechaBautismo_P", FechaBautismo)
-                            .Parameters.AddWithValue("@Ungido_P", Ungido)
-                            .Parameters.AddWithValue("@TelefonoCasa_P", TelefonoCasa)
-                            .Parameters.AddWithValue("@TelefonoMovil_P", TelefonoMovil)
-                            .Parameters.AddWithValue("@TelefonoTrabajo_P", TelefonoTrabajo)
-                            .Parameters.AddWithValue("@Id_MS_P", ObjSexo.Id)
-                            .Parameters.AddWithValue("@Id_MPR_P", ObjPrivilegio.Id)
-                            .Parameters.AddWithValue("@Id_MP_P", ObjPrecursor.Id)
-                            .Parameters.AddWithValue("@Id_ME_P", ObjEstado.Id)
-                            .Parameters.AddWithValue("@Id_G_P", ObjGrupo.Id)
+                            .Parameters.AddWithValue("@Nombre_P", Me.Nombre)
+                            .Parameters.AddWithValue("@Apellido_P", Me.Apellido)
+                            .Parameters.AddWithValue("@Direccion_P", Me.Direccion)
+                            .Parameters.AddWithValue("@EMail_P", Me.EMail)
+                            .Parameters.AddWithValue("@FechaNacimiento_P", Me.FechaNacimiento)
+                            .Parameters.AddWithValue("@FechaBautismo_P", Me.FechaBautismo)
+                            .Parameters.AddWithValue("@Ungido_P", Me.Ungido)
+                            .Parameters.AddWithValue("@TelefonoCasa_P", Me.TelefonoCasa)
+                            .Parameters.AddWithValue("@TelefonoMovil_P", Me.TelefonoMovil)
+                            .Parameters.AddWithValue("@TelefonoTrabajo_P", Me.TelefonoTrabajo)
+                            .Parameters.AddWithValue("@Id_MS_P", Me.ObjSexo.Id)
+                            .Parameters.AddWithValue("@Id_MPR_P", Me.ObjPrivilegio.Id)
+                            .Parameters.AddWithValue("@Id_MP_P", Me.ObjPrecursor.Id)
+                            .Parameters.AddWithValue("@Id_ME_P", Me.ObjEstado.Id)
+                            .Parameters.AddWithValue("@Id_G_P", Me.ObjGrupo.Id)
                             .ExecuteNonQuery()
                             Me.Id = .Parameters("@Id_P").Value
+                        End With
+                    End Using
+                End Using
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Sub
+
+        Public Sub dbUpdate()
+            Try
+                Using lObjConexion = New SqlClient.SqlConnection(My.Settings.CadenaDeConexion)
+                    lObjConexion.Open()
+                    Using lObjSqlCommand = New SqlClient.SqlCommand("PublicadorUpd", lObjConexion)
+                        With lObjSqlCommand
+                            .CommandType = CommandType.StoredProcedure
+                            .Parameters.AddWithValue("@Id_P", Me.Id)
+                            .Parameters.AddWithValue("@Nombre_P", Me.Nombre)
+                            .Parameters.AddWithValue("@Apellido_P", Me.Apellido)
+                            .Parameters.AddWithValue("@Direccion_P", Me.Direccion)
+                            .Parameters.AddWithValue("@EMail_P", Me.EMail)
+                            .Parameters.AddWithValue("@FechaNacimiento_P", Me.FechaNacimiento)
+                            .Parameters.AddWithValue("@FechaBautismo_P", Me.FechaBautismo)
+                            .Parameters.AddWithValue("@Ungido_P", Me.Ungido)
+                            .Parameters.AddWithValue("@TelefonoCasa_P", Me.TelefonoCasa)
+                            .Parameters.AddWithValue("@TelefonoMovil_P", Me.TelefonoMovil)
+                            .Parameters.AddWithValue("@TelefonoTrabajo_P", Me.TelefonoTrabajo)
+                            .Parameters.AddWithValue("@Id_MS_P", Me.ObjSexo.Id)
+                            .Parameters.AddWithValue("@Id_MPR_P", Me.ObjPrivilegio.Id)
+                            .Parameters.AddWithValue("@Id_MP_P", Me.ObjPrecursor.Id)
+                            .Parameters.AddWithValue("@Id_ME_P", Me.ObjEstado.Id)
+                            .Parameters.AddWithValue("@Id_G_P", Me.ObjGrupo.Id)
+                            .ExecuteNonQuery()
+                        End With
+                    End Using
+                End Using
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Sub
+
+        Public Sub dbGet()
+            Try
+                Using lObjConexion = New SqlClient.SqlConnection(My.Settings.CadenaDeConexion)
+                    lObjConexion.Open()
+                    Using lObjSqlCommand = New SqlClient.SqlCommand("PublicadorGet", lObjConexion)
+                        With lObjSqlCommand
+                            .CommandType = CommandType.StoredProcedure
+                            .Parameters.AddWithValue("@Id_P", Me.Id)
+                            Using lObjSqlDataReader As SqlClient.SqlDataReader = lObjSqlCommand.ExecuteReader
+                                If (lObjSqlDataReader.HasRows) Then
+                                    If (lObjSqlDataReader.Read()) Then
+                                        SetearObjetoSegunReader(lObjSqlDataReader)
+                                    End If
+                                End If
+                            End Using
                         End With
                     End Using
                 End Using
