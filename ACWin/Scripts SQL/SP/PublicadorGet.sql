@@ -1,9 +1,11 @@
 use [ACWIN.MDF]
 
-IF OBJECT_ID('[PublicadoresGetAll]') IS NOT NULL DROP PROCEDURE [PublicadoresGetAll]
+IF OBJECT_ID('[PublicadorGet]') IS NOT NULL DROP PROCEDURE [PublicadorGet]
 GO
 
-CREATE PROCEDURE [PublicadoresGetAll]
+CREATE PROCEDURE [PublicadorGet](
+@Id_P Int
+)
 AS 
   
 SELECT Publicador.*,
@@ -23,4 +25,5 @@ SELECT Publicador.*,
            ON (Publicador.Id_MPR_P = MaestroPrivilegio.Id_MPR))
        INNER JOIN [ACWIN.MDF].dbo.MaestroPrecursor MaestroPrecursor
           ON (Publicador.Id_MP_P = MaestroPrecursor.Id_MP)
-ORDER BY Publicador.Apellido_P ASC
+WHERE Publicador.Id_P = @Id_P
+

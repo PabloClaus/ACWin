@@ -55,8 +55,19 @@
         frmPublicadorUpd.ShowDialog(Me)
     End Sub
 
-    Private Sub lwPublicadores_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lwPublicadores.SelectedIndexChanged
-        frmPublicadorUpd.LoadObjPublicador(Convert.ToInt32(lwPublicadores.SelectedItems(0).Text()))
-        frmPublicadorUpd.ShowDialog(Me)
+    'Private Sub lwPublicadores_ItemSelectionChanged(sender As Object, e As EventArgs) Handles lwPublicadores.ItemSelectionChanged
+    '    If lwPublicadores.SelectedItems.Count <> 0 Then
+    '        frmPublicadorUpd.LoadObjPublicador(Convert.ToInt32(lwPublicadores.SelectedItems(0).Text()))
+    '        frmPublicadorUpd.ShowDialog(Me)
+    '    End If
+    'End Sub
+
+    Private Sub lwPublicadores_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles lwPublicadores.MouseDoubleClick
+        Dim senderList = DirectCast(sender, ListView)
+        Dim clickedItem = senderList.HitTest(e.Location).Item
+        If clickedItem IsNot Nothing Then
+            frmPublicadorUpd.LoadObjPublicador(Convert.ToInt32(clickedItem.Text()))
+            frmPublicadorUpd.ShowDialog(Me)
+        End If
     End Sub
 End Class

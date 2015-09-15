@@ -2,6 +2,7 @@
     Public Class clsActividad
 #Region "Propiedades"
         Public Property Id As Integer
+        Public Property Libros As Integer
         Public Property Folletos As Integer
         Public Property Horas As Integer
         Public Property Revistas As Integer
@@ -12,7 +13,6 @@
         Public Property Tardio As Boolean
         Public Property ObjMes As clsMes
         Public Property ObjAnio As clsAnio
-
 #End Region
 #Region "Constructores"
         Public Sub New()
@@ -27,6 +27,8 @@
                     Select Case aReader.GetName(i)
                         Case Is = "Id_A"
                             Me.Id = aReader.Item(i)
+                        Case Is = "Libros_A"
+                            Me.Libros = aReader.Item(i)
                         Case Is = "Folletos_A"
                             Me.Folletos = aReader.Item(i)
                         Case Is = "Horas_A"

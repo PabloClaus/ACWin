@@ -17,3 +17,6 @@ C:\Users\Pablo\documents\visual studio 2013\Projects\ACWin\ACWin\bin\Debug\ACWin
 C:\Users\Pablo\documents\visual studio 2013\Projects\ACWin\ACWin\bin\Debug\ACWin.pdb
 C:\Users\Pablo\documents\visual studio 2013\Projects\ACWin\ACWin\bin\Debug\ACWin.xml
 C:\Users\Pablo\documents\visual studio 2013\Projects\ACWin\ACWin\obj\Debug\ACWin.frmPublicadorUpd.resources
+C:\Users\Pablo\documents\visual studio 2013\Projects\ACWin\ACWin\obj\Debug\ACWin.frmActividadPublicadores.resources
+C:\Users\Pablo\documents\visual studio 2013\Projects\ACWin\ACWin\obj\Debug\ACWin.frmActividadPublicador.resources
+C:\Users\Pablo\documents\visual studio 2013\Projects\ACWin\ACWin\obj\Debug\ACWin.frmActividadPublicadorUpd.resources

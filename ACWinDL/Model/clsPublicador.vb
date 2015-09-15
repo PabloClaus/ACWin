@@ -17,7 +17,7 @@
         Public Property ObjPrecursor As clsPrecursor
         Public Property ObjEstado As clsEstado
         Public Property ObjGrupo As clsGrupo
-        Public Property ColActividad As List(Of clsActividad)
+        Public Property ColActividad As New List(Of clsActividad)
 #End Region
 #Region "Constructores"
         Public Sub New()
@@ -63,6 +63,8 @@
         End Sub
 #End Region
 #Region "Metodos"
+#End Region
+#Region "Base de datos"
         Public Sub dbAdd()
             Try
                 Using lObjConexion = New SqlClient.SqlConnection(My.Settings.CadenaDeConexion)
@@ -151,8 +153,55 @@
                 Throw ex
             End Try
         End Sub
-#End Region
-#Region "Base de datos"
+
+        Public Sub dbActividadGet(ByVal aIdAnio As Integer, ByVal aIdMes As Integer)
+            Try
+                Using lObjConexion = New SqlClient.SqlConnection(My.Settings.CadenaDeConexion)
+                    lObjConexion.Open()
+                    Using lObjSqlCommand = New SqlClient.SqlCommand("PublicadorActividadGetByAnioMes", lObjConexion)
+                        With lObjSqlCommand
+                            .CommandType = CommandType.StoredProcedure
+                            .Parameters.AddWithValue("@Id_P_A", Me.Id)
+                            .Parameters.AddWithValue("@Id_MA_A", aIdAnio)
+                            .Parameters.AddWithValue("@Id_MM_A", aIdMes)
+                            Using lObjSqlDataReader As SqlClient.SqlDataReader = lObjSqlCommand.ExecuteReader
+                                If (lObjSqlDataReader.HasRows) Then
+                                    If (lObjSqlDataReader.Read()) Then
+                                        Me.ColActividad.Add(New clsActividad(lObjSqlDataReader))
+                                    End If
+                                End If
+                            End Using
+                        End With
+                    End Using
+                End Using
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Sub
+
+        Public Sub dbActividadGetAll()
+            Try
+                Using lObjConexion = New SqlClient.SqlConnection(My.Settings.CadenaDeConexion)
+                    lObjConexion.Open()
+                    Using lObjSqlCommand = New SqlClient.SqlCommand("PublicadorActividadGetAll", lObjConexion)
+                        With lObjSqlCommand
+                            .CommandType = CommandType.StoredProcedure
+                            .Parameters.AddWithValue("@Id_P_A", Me.Id)
+                            Using lObjSqlDataReader As SqlClient.SqlDataReader = lObjSqlCommand.ExecuteReader
+                                If (lObjSqlDataReader.HasRows) Then
+                                    Do While lObjSqlDataReader.Read()
+                                        Me.ColActividad.Add(New clsActividad(lObjSqlDataReader))
+                                    Loop
+                                End If
+                            End Using
+                        End With
+                    End Using
+                End Using
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Sub
+
 
 #End Region
     End Class

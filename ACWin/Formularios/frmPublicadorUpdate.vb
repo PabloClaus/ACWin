@@ -20,6 +20,13 @@
             Me.txtApellido.Text = .Apellido
             Me.txtNombre.Text = .Nombre
             Me.txtDireccion.Text = .Direccion
+            Me.txtTelefonoCasa.Text = .TelefonoCasa
+            Me.txtTelefonoMovil.Text = .TelefonoMovil
+            Me.txtTelefonoTrabajo.Text = .TelefonoTrabajo
+            Me.txtEMail.Text = .EMail
+            Me.dtpFechaBautismo.Value = .FechaBautismo
+            Me.dtpFechaNacimiento.Value = .FechaNacimiento
+            Me.chkUngido.Checked = .Ungido
         End With
     End Sub
 
@@ -33,7 +40,7 @@
         Me.cboSexo.DataSource = lObjItems
         Me.cboSexo.DisplayMember = "Valor"
         Me.cboSexo.ValueMember = "Id"
-        Me.cboSexo.SelectedIndex = pObjPublicador.ObjSexo.Id
+        Me.cboSexo.SelectedIndex = Me.cboSexo.FindStringExact(pObjPublicador.ObjSexo.Nombre)
     End Sub
 
     Private Sub LoadCboGrupo()
@@ -46,6 +53,7 @@
         Me.cboGrupo.DataSource = lObjItems
         Me.cboGrupo.DisplayMember = "Valor"
         Me.cboGrupo.ValueMember = "Id"
+        Me.cboGrupo.SelectedIndex = Me.cboGrupo.FindStringExact(pObjPublicador.ObjGrupo.Nombre)
     End Sub
 
     Private Sub LoadCboEstado()
@@ -58,6 +66,7 @@
         Me.cboEstado.DataSource = lObjItems
         Me.cboEstado.DisplayMember = "Valor"
         Me.cboEstado.ValueMember = "Id"
+        Me.cboEstado.SelectedIndex = Me.cboEstado.FindStringExact(pObjPublicador.ObjEstado.Nombre)
     End Sub
 
     Private Sub LoadCboPrivilegio()
@@ -70,6 +79,7 @@
         Me.cboPrivilegio.DataSource = lObjItems
         Me.cboPrivilegio.DisplayMember = "Valor"
         Me.cboPrivilegio.ValueMember = "Id"
+        Me.cboPrivilegio.SelectedIndex = Me.cboPrivilegio.FindStringExact(pObjPublicador.ObjPrivilegio.Nombre)
     End Sub
 
     Private Sub LoadCboPrecursor()
@@ -82,6 +92,7 @@
         Me.cboPrecursor.DataSource = lObjItems
         Me.cboPrecursor.DisplayMember = "Valor"
         Me.cboPrecursor.ValueMember = "Id"
+        Me.cboPrecursor.SelectedIndex = Me.cboPrecursor.FindStringExact(pObjPublicador.ObjPrecursor.Nombre)
     End Sub
 
 
@@ -98,15 +109,18 @@
                                                                        .TelefonoMovil = txtTelefonoMovil.Text, _
                                                                        .TelefonoTrabajo = txtTelefonoTrabajo.Text, _
                                                                        .EMail = txtEMail.Text}
-            lObjPublicador.ObjSexo = New ACWinDL.Model.clsSexo With {.Id = cboSexo.SelectedValue}
-            lObjPublicador.ObjEstado = New ACWinDL.Model.clsEstado With {.Id = cboEstado.SelectedValue}
-            lObjPublicador.ObjGrupo = New ACWinDL.Model.clsGrupo With {.Id = cboGrupo.SelectedValue}
-            lObjPublicador.ObjPrecursor = New ACWinDL.Model.clsPrecursor With {.Id = cboPrecursor.SelectedValue}
-            lObjPublicador.ObjPrivilegio = New ACWinDL.Model.clsPrivilegio With {.Id = cboPrivilegio.SelectedValue}
+            lObjPublicador.ObjSexo = New ACWinDL.Model.clsSexo With {.Id = cboSexo.SelectedValue, .Nombre = cboSexo.SelectedItem.Valor}
+            lObjPublicador.ObjEstado = New ACWinDL.Model.clsEstado With {.Id = cboEstado.SelectedValue, .Nombre = cboEstado.SelectedItem.Valor}
+            lObjPublicador.ObjGrupo = New ACWinDL.Model.clsGrupo With {.Id = cboGrupo.SelectedValue, .Nombre = cboGrupo.SelectedItem.Valor}
+            lObjPublicador.ObjPrecursor = New ACWinDL.Model.clsPrecursor With {.Id = cboPrecursor.SelectedValue, .Nombre = cboPrecursor.SelectedItem.Valor}
+            lObjPublicador.ObjPrivilegio = New ACWinDL.Model.clsPrivilegio With {.Id = cboPrivilegio.SelectedValue, .Nombre = cboPrivilegio.SelectedItem.Valor}
             lObjPublicador.dbUpdate()
 
 
-            Dim lObjLWItem As ListViewItem = frmPublicadores.lwPublicadores.Items.Cast(Of ListViewItem).First(Function(x) x.Text = Convert.ToString(lObjPublicador.Id))
+            Dim lIndex As Integer = frmPublicadores.lwPublicadores.Items.IndexOfKey(Convert.ToString(lObjPublicador.Id))
+            frmPublicadores.lwPublicadores.Items.RemoveByKey(Convert.ToString(lObjPublicador.Id))
+            Dim lObjLWItem As New ListViewItem(lObjPublicador.Id)
+            lObjLWItem.Name = lObjPublicador.Id
             lObjLWItem.SubItems.Add(lObjPublicador.Apellido)
             lObjLWItem.SubItems.Add(lObjPublicador.Nombre)
             lObjLWItem.SubItems.Add(lObjPublicador.Direccion)
@@ -118,7 +132,7 @@
             lObjLWItem.SubItems.Add(lObjPublicador.ObjPrivilegio.Nombre)
             lObjLWItem.SubItems.Add(lObjPublicador.ObjPrecursor.Nombre)
             lObjLWItem.SubItems.Add(lObjPublicador.ObjGrupo.Nombre)
-            frmPublicadores.lwPublicadores.Items.Add(lObjLWItem)
+            frmPublicadores.lwPublicadores.Items.Insert(lIndex, lObjLWItem)
 
             MessageBox.Show("Cambios guardados correctamente", "Operación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information)
             frmPublicadores.Refresh()

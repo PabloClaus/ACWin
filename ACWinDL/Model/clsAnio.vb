@@ -2,7 +2,6 @@
     Public Class clsAnio
 #Region "Propiedades"
         Public Property Id As Integer
-        Public Property Nombre As String
 #End Region
 #Region "Constructores"
         Public Sub New()
@@ -17,8 +16,6 @@
                     Select Case aReader.GetName(i)
                         Case Is = "Id_MA"
                             Me.Id = aReader.Item(i)
-                        Case Is = "Nombre_MA"
-                            Me.Nombre = aReader.Item(i)
                     End Select
                 End If
             Next

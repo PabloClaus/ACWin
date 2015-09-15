@@ -90,6 +90,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ACWinDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmActividadPublicadores.Designer.vb">
+      <DependentUpon>frmActividadPublicadores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmActividadPublicadores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmActividadPublicador.Designer.vb">
+      <DependentUpon>frmActividadPublicador.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmActividadPublicador.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmActividadPublicadorUpd.Designer.vb">
+      <DependentUpon>frmActividadPublicadorUpd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmActividadPublicadorUpd.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\frmPrincipal.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +152,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\frmActividadPublicadores.resx">
+      <DependentUpon>frmActividadPublicadores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmActividadPublicador.resx">
+      <DependentUpon>frmActividadPublicador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmActividadPublicadorUpd.resx">
+      <DependentUpon>frmActividadPublicadorUpd.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.vb</DependentUpon>
     </EmbeddedResource>

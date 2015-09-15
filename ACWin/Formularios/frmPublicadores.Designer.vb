@@ -23,36 +23,43 @@ Partial Class frmPublicadores
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.lwPublicadores = New System.Windows.Forms.ListView()
-        Me.chApellido = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
-        Me.chNombre = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
-        Me.chDireccion = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
-        Me.chTelefonoCasa = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
-        Me.chTelefonoMovil = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
-        Me.chTelefonoTrabajo = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
-        Me.chFechaNacimiento = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
-        Me.chFechaBautismo = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
-        Me.chPrivilegio = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
-        Me.chPrecursor = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
-        Me.chGrupo = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
+        Me.chId = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chApellido = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chNombre = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chDireccion = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chTelefonoCasa = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chTelefonoMovil = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chTelefonoTrabajo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chFechaNacimiento = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chFechaBautismo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chPrivilegio = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chPrecursor = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chGrupo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.btNuevo = New System.Windows.Forms.Button()
         Me.btnEditar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.chId = CType(New System.Windows.Forms.ColumnHeader(),System.Windows.Forms.ColumnHeader)
-        Me.SuspendLayout
+        Me.SuspendLayout()
         '
         'lwPublicadores
         '
-        Me.lwPublicadores.AllowColumnReorder = true
+        Me.lwPublicadores.AllowColumnReorder = True
+        Me.lwPublicadores.BackColor = System.Drawing.SystemColors.Info
         Me.lwPublicadores.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chId, Me.chApellido, Me.chNombre, Me.chDireccion, Me.chTelefonoCasa, Me.chTelefonoMovil, Me.chTelefonoTrabajo, Me.chFechaNacimiento, Me.chFechaBautismo, Me.chPrivilegio, Me.chPrecursor, Me.chGrupo})
-        Me.lwPublicadores.FullRowSelect = true
-        Me.lwPublicadores.GridLines = true
+        Me.lwPublicadores.FullRowSelect = True
+        Me.lwPublicadores.GridLines = True
         Me.lwPublicadores.Location = New System.Drawing.Point(13, 65)
         Me.lwPublicadores.Name = "lwPublicadores"
         Me.lwPublicadores.Size = New System.Drawing.Size(1024, 377)
         Me.lwPublicadores.TabIndex = 0
-        Me.lwPublicadores.UseCompatibleStateImageBehavior = false
+        Me.lwPublicadores.UseCompatibleStateImageBehavior = False
         Me.lwPublicadores.View = System.Windows.Forms.View.Details
+        '
+        'chId
+        '
+        Me.chId.DisplayIndex = 11
+        Me.chId.Text = "Id"
+        Me.chId.Width = 0
         '
         'chApellido
         '
@@ -127,7 +134,7 @@ Partial Class frmPublicadores
         Me.btNuevo.Size = New System.Drawing.Size(75, 23)
         Me.btNuevo.TabIndex = 1
         Me.btNuevo.Text = "Nuevo"
-        Me.btNuevo.UseVisualStyleBackColor = true
+        Me.btNuevo.UseVisualStyleBackColor = True
         '
         'btnEditar
         '
@@ -136,7 +143,7 @@ Partial Class frmPublicadores
         Me.btnEditar.Size = New System.Drawing.Size(75, 23)
         Me.btnEditar.TabIndex = 2
         Me.btnEditar.Text = "Editar"
-        Me.btnEditar.UseVisualStyleBackColor = true
+        Me.btnEditar.UseVisualStyleBackColor = True
         '
         'btnEliminar
         '
@@ -145,23 +152,17 @@ Partial Class frmPublicadores
         Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
         Me.btnEliminar.TabIndex = 3
         Me.btnEliminar.Text = "Eliminar"
-        Me.btnEliminar.UseVisualStyleBackColor = true
+        Me.btnEliminar.UseVisualStyleBackColor = True
         '
         'Label1
         '
-        Me.Label1.AutoSize = true
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(10, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(112, 20)
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Publicadores"
-        '
-        'chId
-        '
-        Me.chId.DisplayIndex = 11
-        Me.chId.Text = "Id"
-        Me.chId.Width = 0
         '
         'frmPublicadores
         '

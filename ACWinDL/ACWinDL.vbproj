@@ -62,11 +62,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\clsAnios.vb" />
     <Compile Include="Model\clsAnio.vb" />
     <Compile Include="Model\clsEstados.vb" />
     <Compile Include="Model\clsEstado.vb" />
     <Compile Include="Model\clsActividad.vb" />
     <Compile Include="Model\clsGrupos.vb" />
+    <Compile Include="Model\clsMeses.vb" />
     <Compile Include="Model\clsMes.vb" />
     <Compile Include="Model\clsGrupo.vb" />
     <Compile Include="Model\clsMesActividad.vb" />

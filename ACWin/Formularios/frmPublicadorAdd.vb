@@ -82,15 +82,16 @@
                                                                        .TelefonoMovil = txtTelefonoMovil.Text, _
                                                                        .TelefonoTrabajo = txtTelefonoTrabajo.Text, _
                                                                        .EMail = txtEMail.Text}
-            lObjPublicador.ObjSexo = New ACWinDL.Model.clsSexo With {.Id = cboSexo.SelectedValue}
-            lObjPublicador.ObjEstado = New ACWinDL.Model.clsEstado With {.Id = cboEstado.SelectedValue}
-            lObjPublicador.ObjGrupo = New ACWinDL.Model.clsGrupo With {.Id = cboGrupo.SelectedValue}
-            lObjPublicador.ObjPrecursor = New ACWinDL.Model.clsPrecursor With {.Id = cboPrecursor.SelectedValue}
-            lObjPublicador.ObjPrivilegio = New ACWinDL.Model.clsPrivilegio With {.Id = cboPrivilegio.SelectedValue}
+            lObjPublicador.ObjSexo = New ACWinDL.Model.clsSexo With {.Id = cboSexo.SelectedValue, .Nombre = cboSexo.SelectedItem.Valor}
+            lObjPublicador.ObjEstado = New ACWinDL.Model.clsEstado With {.Id = cboEstado.SelectedValue, .Nombre = cboEstado.SelectedItem.Valor}
+            lObjPublicador.ObjGrupo = New ACWinDL.Model.clsGrupo With {.Id = cboGrupo.SelectedValue, .Nombre = cboGrupo.SelectedItem.Valor}
+            lObjPublicador.ObjPrecursor = New ACWinDL.Model.clsPrecursor With {.Id = cboPrecursor.SelectedValue, .Nombre = cboPrecursor.SelectedItem.Valor}
+            lObjPublicador.ObjPrivilegio = New ACWinDL.Model.clsPrivilegio With {.Id = cboPrivilegio.SelectedValue, .Nombre = cboPrivilegio.SelectedItem.Valor}
             lObjPublicador.dbAdd()
 
 
             Dim lObjLWItem As New ListViewItem(lObjPublicador.Id)
+            lObjLWItem.Name = lObjPublicador.Id
             lObjLWItem.SubItems.Add(lObjPublicador.Apellido)
             lObjLWItem.SubItems.Add(lObjPublicador.Nombre)
             lObjLWItem.SubItems.Add(lObjPublicador.Direccion)
