@@ -18,6 +18,8 @@
         Public Property ObjEstado As clsEstado
         Public Property ObjGrupo As clsGrupo
         Public Property ColActividad As New List(Of clsActividad)
+        Public Property ObjPublicadorMotivoAlta As clsPublicadorMotivoAlta
+        Public Property ObjPublicadorMotivoBaja As clsPublicadorMotivoBaja
 #End Region
 #Region "Constructores"
         Public Sub New()
@@ -60,6 +62,8 @@
             Me.ObjPrecursor = New clsPrecursor(aReader)
             Me.ObjEstado = New clsEstado(aReader)
             Me.ObjGrupo = New clsGrupo(aReader)
+            Me.ObjPublicadorMotivoAlta = New clsPublicadorMotivoAlta(aReader)
+            Me.ObjPublicadorMotivoBaja = New clsPublicadorMotivoBaja(aReader)
         End Sub
 #End Region
 #Region "Metodos"
@@ -89,6 +93,8 @@
                             .Parameters.AddWithValue("@Id_MP_P", Me.ObjPrecursor.Id)
                             .Parameters.AddWithValue("@Id_ME_P", Me.ObjEstado.Id)
                             .Parameters.AddWithValue("@Id_G_P", Me.ObjGrupo.Id)
+                            .Parameters.AddWithValue("@FechaAlta_P", Me.ObjPublicadorMotivoAlta.Fecha)
+                            .Parameters.AddWithValue("@Id_MMA_P", Me.ObjPublicadorMotivoAlta.ObjMotivoAlta.Id)
                             .ExecuteNonQuery()
                             Me.Id = .Parameters("@Id_P").Value
                         End With
@@ -122,6 +128,10 @@
                             .Parameters.AddWithValue("@Id_MP_P", Me.ObjPrecursor.Id)
                             .Parameters.AddWithValue("@Id_ME_P", Me.ObjEstado.Id)
                             .Parameters.AddWithValue("@Id_G_P", Me.ObjGrupo.Id)
+                            .Parameters.AddWithValue("@FechaAlta_P", Me.ObjPublicadorMotivoAlta.Fecha)
+                            .Parameters.AddWithValue("@Id_MMA_P", Me.ObjPublicadorMotivoAlta.ObjMotivoAlta.Id)
+                            .Parameters.AddWithValue("@FechaBaja_P", Me.ObjPublicadorMotivoBaja.Fecha)
+                            .Parameters.AddWithValue("@Id_MMB_P", Me.ObjPublicadorMotivoBaja.ObjMotivoBaja.Id)
                             .ExecuteNonQuery()
                         End With
                     End Using

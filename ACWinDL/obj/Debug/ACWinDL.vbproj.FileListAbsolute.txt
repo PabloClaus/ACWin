@@ -7,3 +7,4 @@ C:\Users\Pablo\documents\visual studio 2013\Projects\ACWin\ACWinDL\obj\Debug\ACW
 C:\Users\Pablo\documents\visual studio 2013\Projects\ACWin\ACWinDL\obj\Debug\ACWinDL.xml
 C:\Users\Pablo\documents\visual studio 2013\Projects\ACWin\ACWinDL\obj\Debug\ACWinDL.pdb
 C:\Users\Pablo\documents\visual studio 2013\Projects\ACWin\ACWinDL\bin\Debug\ACWinDL.dll.config
+C:\Users\Pablo\Documents\Visual Studio 2013\Projects\ACWin\ACWinDL\obj\Debug\ACWinDL.vbprojResolveAssemblyReference.cache

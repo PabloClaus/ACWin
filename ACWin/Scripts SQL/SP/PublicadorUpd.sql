@@ -7,7 +7,7 @@ CREATE PROCEDURE [PublicadorUpd]
 (
   @Id_P int,
   @Nombre_P nvarchar(50),
-  @Apellido_P nvarchar(5),
+  @Apellido_P nvarchar(50),
   @Direccion_P nvarchar(200),
   @EMail_P nvarchar(50),
   @FechaNacimiento_P date,
@@ -20,7 +20,11 @@ CREATE PROCEDURE [PublicadorUpd]
   @Id_MPR_P int,
   @Id_MP_P int,
   @Id_ME_P int,
-  @Id_G_P int
+  @Id_G_P int,
+  @FechaAlta_P date,
+  @FechaBaja_P date,
+  @Id_MMB_P int,
+  @Id_MMA_P int
 )
 
 AS 
@@ -40,6 +44,10 @@ AS
     Id_MPR_P = @Id_MPR_P,
     Id_MP_P =  @Id_MP_P,
     Id_ME_P = @Id_ME_P,
-    Id_G_P = @Id_G_P
+    Id_G_P = @Id_G_P,
+    FechaAlta_P = @FechaAlta_P,
+    FechaBaja_P = @FechaBaja_P,
+    Id_MMB_P = @Id_MMB_P,
+    Id_MMA_P = @Id_MMA_P
 WHERE Id_P = @Id_P
 

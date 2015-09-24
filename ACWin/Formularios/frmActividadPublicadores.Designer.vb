@@ -39,8 +39,6 @@ Partial Class frmActividadPublicadores
         Me.cboAnio = New System.Windows.Forms.ComboBox()
         Me.cboMes = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.btnAceptar = New System.Windows.Forms.Button()
-        Me.btnCancelar = New System.Windows.Forms.Button()
         Me.lblAnioMesMostrado = New System.Windows.Forms.Label()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -58,7 +56,7 @@ Partial Class frmActividadPublicadores
         Me.lwActividadPublicadores.GridLines = True
         Me.lwActividadPublicadores.Location = New System.Drawing.Point(12, 102)
         Me.lwActividadPublicadores.Name = "lwActividadPublicadores"
-        Me.lwActividadPublicadores.Size = New System.Drawing.Size(850, 350)
+        Me.lwActividadPublicadores.Size = New System.Drawing.Size(850, 382)
         Me.lwActividadPublicadores.TabIndex = 0
         Me.lwActividadPublicadores.UseCompatibleStateImageBehavior = False
         Me.lwActividadPublicadores.View = System.Windows.Forms.View.Details
@@ -157,25 +155,6 @@ Partial Class frmActividadPublicadores
         Me.Label11.TabIndex = 30
         Me.Label11.Text = "Actividad Publicadores"
         '
-        'btnAceptar
-        '
-        Me.btnAceptar.Location = New System.Drawing.Point(800, 458)
-        Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(62, 23)
-        Me.btnAceptar.TabIndex = 58
-        Me.btnAceptar.Text = "Aceptar"
-        Me.btnAceptar.UseVisualStyleBackColor = True
-        '
-        'btnCancelar
-        '
-        Me.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancelar.Location = New System.Drawing.Point(732, 458)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(62, 23)
-        Me.btnCancelar.TabIndex = 57
-        Me.btnCancelar.Text = "Cancelar"
-        Me.btnCancelar.UseVisualStyleBackColor = True
-        '
         'lblAnioMesMostrado
         '
         Me.lblAnioMesMostrado.AutoSize = True
@@ -239,13 +218,10 @@ Partial Class frmActividadPublicadores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.CancelButton = Me.btnCancelar
         Me.ClientSize = New System.Drawing.Size(881, 489)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.lblAnioMesMostrado)
-        Me.Controls.Add(Me.btnAceptar)
-        Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.cboMes)
         Me.Controls.Add(Me.cboAnio)
@@ -278,8 +254,6 @@ Partial Class frmActividadPublicadores
     Friend WithEvents cboAnio As System.Windows.Forms.ComboBox
     Friend WithEvents cboMes As System.Windows.Forms.ComboBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents btnAceptar As System.Windows.Forms.Button
-    Friend WithEvents btnCancelar As System.Windows.Forms.Button
     Friend WithEvents chPublicador As System.Windows.Forms.ColumnHeader
     Friend WithEvents lblAnioMesMostrado As System.Windows.Forms.Label
     Friend WithEvents btnBuscar As System.Windows.Forms.Button

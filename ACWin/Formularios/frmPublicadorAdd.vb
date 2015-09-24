@@ -6,6 +6,7 @@
         LoadCboEstado()
         LoadCboPrivilegio()
         LoadCboPrecursor()
+        LoadCboMotivoAlta()
     End Sub
 
 
@@ -69,6 +70,18 @@
         Me.cboPrecursor.ValueMember = "Id"
     End Sub
 
+    Private Sub LoadCboMotivoAlta()
+        Dim lColMotivoAlta As New ACWinDL.Model.clsMotivosAlta
+        lColMotivoAlta.dbGetAll()
+        Dim lObjItems As New List(Of Model.clsComboBoxItem)
+        For Each lObjMotivoAlta In lColMotivoAlta
+            lObjItems.Add(New Model.clsComboBoxItem With {.Id = lObjMotivoAlta.Id, .Valor = lObjMotivoAlta.Nombre})
+        Next
+        Me.cboMotivoAlta.DataSource = lObjItems
+        Me.cboMotivoAlta.DisplayMember = "Valor"
+        Me.cboMotivoAlta.ValueMember = "Id"
+    End Sub
+
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         If txtNombre.Text.Length > 0 And txtApellido.Text.Length > 0 Then
@@ -87,8 +100,9 @@
             lObjPublicador.ObjGrupo = New ACWinDL.Model.clsGrupo With {.Id = cboGrupo.SelectedValue, .Nombre = cboGrupo.SelectedItem.Valor}
             lObjPublicador.ObjPrecursor = New ACWinDL.Model.clsPrecursor With {.Id = cboPrecursor.SelectedValue, .Nombre = cboPrecursor.SelectedItem.Valor}
             lObjPublicador.ObjPrivilegio = New ACWinDL.Model.clsPrivilegio With {.Id = cboPrivilegio.SelectedValue, .Nombre = cboPrivilegio.SelectedItem.Valor}
+            lObjPublicador.ObjPublicadorMotivoAlta = New ACWinDL.Model.clsPublicadorMotivoAlta With {.Fecha = dtpFechaInicioMotivoAlta.Value.ToShortDateString}
+            lObjPublicador.ObjPublicadorMotivoAlta.ObjMotivoAlta = New ACWinDL.Model.clsMotivoAlta With {.Id = cboMotivoAlta.SelectedValue}
             lObjPublicador.dbAdd()
-
 
             Dim lObjLWItem As New ListViewItem(lObjPublicador.Id)
             lObjLWItem.Name = lObjPublicador.Id

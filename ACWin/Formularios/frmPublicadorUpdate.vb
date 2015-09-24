@@ -8,6 +8,8 @@
         LoadCboEstado()
         LoadCboPrivilegio()
         LoadCboPrecursor()
+        LoadCboMotivoAlta()
+        LoadCboMotivoBaja()
     End Sub
 
     Friend Sub LoadObjPublicador(ByVal Id As Integer)
@@ -95,6 +97,32 @@
         Me.cboPrecursor.SelectedIndex = Me.cboPrecursor.FindStringExact(pObjPublicador.ObjPrecursor.Nombre)
     End Sub
 
+    Private Sub LoadCboMotivoAlta()
+        Dim lColMotivoAlta As New ACWinDL.Model.clsMotivosAlta
+        lColMotivoAlta.dbGetAll()
+        Dim lObjItems As New List(Of Model.clsComboBoxItem)
+        For Each lObjMotivoAlta In lColMotivoAlta
+            lObjItems.Add(New Model.clsComboBoxItem With {.Id = lObjMotivoAlta.Id, .Valor = lObjMotivoAlta.Nombre})
+        Next
+        Me.cboMotivoAlta.DataSource = lObjItems
+        Me.cboMotivoAlta.DisplayMember = "Valor"
+        Me.cboMotivoAlta.ValueMember = "Id"
+        Me.cboMotivoAlta.SelectedIndex = Me.cboMotivoAlta.FindStringExact(pObjPublicador.ObjPublicadorMotivoAlta.ObjMotivoAlta.Nombre)
+    End Sub
+
+    Private Sub LoadCboMotivoBaja()
+        Dim lColMotivoBaja As New ACWinDL.Model.clsMotivosBaja
+        lColMotivoBaja.dbGetAll()
+        Dim lObjItems As New List(Of Model.clsComboBoxItem)
+        For Each lObjMotivoBaja In lColMotivoBaja
+            lObjItems.Add(New Model.clsComboBoxItem With {.Id = lObjMotivoBaja.Id, .Valor = lObjMotivoBaja.Nombre})
+        Next
+        Me.cboMotivoBaja.DataSource = lObjItems
+        Me.cboMotivoBaja.DisplayMember = "Valor"
+        Me.cboMotivoBaja.ValueMember = "Id"
+        Me.cboMotivoBaja.SelectedIndex = Me.cboMotivoBaja.FindStringExact(pObjPublicador.ObjPublicadorMotivoBaja.ObjMotivoBaja.Nombre)
+    End Sub
+
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         If txtNombre.Text.Length > 0 And txtApellido.Text.Length > 0 Then
@@ -114,6 +142,10 @@
             lObjPublicador.ObjGrupo = New ACWinDL.Model.clsGrupo With {.Id = cboGrupo.SelectedValue, .Nombre = cboGrupo.SelectedItem.Valor}
             lObjPublicador.ObjPrecursor = New ACWinDL.Model.clsPrecursor With {.Id = cboPrecursor.SelectedValue, .Nombre = cboPrecursor.SelectedItem.Valor}
             lObjPublicador.ObjPrivilegio = New ACWinDL.Model.clsPrivilegio With {.Id = cboPrivilegio.SelectedValue, .Nombre = cboPrivilegio.SelectedItem.Valor}
+            lObjPublicador.ObjPublicadorMotivoAlta = New ACWinDL.Model.clsPublicadorMotivoAlta With {.Fecha = dtpFechaInicioMotivoAlta.Value.ToShortDateString}
+            lObjPublicador.ObjPublicadorMotivoAlta.ObjMotivoAlta = New ACWinDL.Model.clsMotivoAlta With {.Id = cboMotivoAlta.SelectedValue}
+            lObjPublicador.ObjPublicadorMotivoBaja = New ACWinDL.Model.clsPublicadorMotivoBaja With {.Fecha = dtpFechaInicioMotivoBaja.Value.ToShortDateString}
+            lObjPublicador.ObjPublicadorMotivoBaja.ObjMotivoBaja = New ACWinDL.Model.clsMotivoBaja With {.Id = cboMotivoBaja.SelectedValue}
             lObjPublicador.dbUpdate()
 
 
@@ -140,6 +172,10 @@
         Else
             MessageBox.Show("Faltan cargar los campos obligatorios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand)
         End If
+    End Sub
+
+    Private Sub chkBaja_CheckedChanged(sender As Object, e As EventArgs) Handles chkBaja.CheckedChanged
+        gbBaja.Enabled = chkBaja.Checked
     End Sub
 
 End Class

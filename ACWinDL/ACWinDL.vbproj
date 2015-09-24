@@ -73,6 +73,12 @@
     <Compile Include="Model\clsGrupo.vb" />
     <Compile Include="Model\clsMesActividad.vb" />
     <Compile Include="Model\clsGrupoPublicadores.vb" />
+    <Compile Include="Model\clsMotivosAlta.vb" />
+    <Compile Include="Model\clsMotivosBaja.vb" />
+    <Compile Include="Model\clsPublicadorMotivoBaja.vb" />
+    <Compile Include="Model\clsPublicadorMotivoAlta.vb" />
+    <Compile Include="Model\clsMotivoBaja.vb" />
+    <Compile Include="Model\clsMotivoAlta.vb" />
     <Compile Include="Model\clsPrecursores.vb" />
     <Compile Include="Model\clsPrecursor.vb" />
     <Compile Include="Model\clsPrivilegios.vb" />
